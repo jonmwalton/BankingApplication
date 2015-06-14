@@ -13,22 +13,7 @@
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
 
-    <properties>
-        <!-- fabric8 deploy profile configuration -->
-        <fabric8.profile>BankingServices</fabric8.profile>
-        <fabric8.parentProfiles>jboss-fuse-minimal</fabric8.parentProfiles>
-        <fabric8.features>${project.groupId}-customer-services</fabric8.features>
-        <fabric8.featureRepos>mvn:${project.groupId}/techstock-features/${project.version}/xml/features</fabric8.featureRepos>
-        <fabric8.includeArtifact>false</fabric8.includeArtifact>
-        <fabric8.ignoreProject>true</fabric8.ignoreProject>
-        <fabric8.abstractProfile>false</fabric8.abstractProfile>
-        <fabric8.locked>false</fabric8.locked>
-
-        <!-- Feature urls -->
-        <camel-features-url>mvn:org.apache.camel.karaf/apache-camel/${version:camel}/xml/features</camel-features-url>
-        <examples-features-url>mvn:${project.groupId}/examples-features/${project.version}/xml/features
-        </examples-features-url>
-    </properties>
+    
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -58,7 +43,7 @@
                 </executions>
             </plugin>
 
-            <!-- package features.xml for deployment -->
+            <!--- package features.xml for deployment -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>

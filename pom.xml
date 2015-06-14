@@ -33,6 +33,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java-runtime>1.7</java-runtime>
+
+        <!-- fabric8 deploy profile configuration -->
+        <fabric8.profile>bankingservices</fabric8.profile>
+        <fabric8.parentProfiles>jboss-fuse-minimal</fabric8.parentProfiles>
+        <fabric8.features>${project.groupId}-customer-services</fabric8.features>
+        <fabric8.featureRepos>mvn:${project.groupId}/techstock-features/${project.version}/xml/features</fabric8.featureRepos>
+        <fabric8.includeArtifact>false</fabric8.includeArtifact>
+        <fabric8.ignoreProject>false</fabric8.ignoreProject>
+        <fabric8.abstractProfile>false</fabric8.abstractProfile>
+        <fabric8.locked>false</fabric8.locked>
+
+        <!-- Feature urls -->
+        <camel-features-url>mvn:org.apache.camel.karaf/apache-camel/${version:camel}/xml/features</camel-features-url>
+        <examples-features-url>mvn:${project.groupId}/examples-features/${project.version}/xml/features
+        </examples-features-url>
     </properties>
 
     <distributionManagement>
@@ -57,25 +72,18 @@
                     <parentProfiles>${fabric8.parentProfiles}</parentProfiles>
                     <features>${fabric8.features}</features>
                     <featureRepos>${fabric8.featureRepos}</featureRepos>
-                    <!--
+                    <profileVersion>1.0</profileVersion>
+                    
                     <includeArtifact>${fabric8.includeArtifact}</includeArtifact>
                     <ignoreProject>${fabric8.ignoreProject}</ignoreProject>
                     <abstractProfile>${fabric8.abstractProfile}</abstractProfile>
                     <locked>${fabric8.locked}</locked>
-                -->
-                    <jolokiaUrl>http://bankingservices-nsdemoenv.rhcloud.com/jolokia</jolokiaUrl>
+                    <upload>true</upload>
+                    <jolokiaUrl>http://bankingdemo-jwalton.rhcloud.com/jolokia</jolokiaUrl>
                 </configuration>
-                <!--
-                <executions>
-                    <execution>
-                        <id>zip</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>zip</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            -->
+                
+                
+            
             </plugin>
         </plugins>
     </build>
